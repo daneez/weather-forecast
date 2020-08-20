@@ -1,0 +1,35 @@
+.app {
+  min-height: 100vh;
+  background-image: url(https://wallpapertag.com/wallpaper/middle/2/9/8/465801-best-pink-purple-and-blue-backgrounds-1920x1080-hd.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather {
+  margin: 60px;
+  background: white;
+  border-radius: 32px;
+  box-shadow: 0 0 16px rgb(0, 0, 0, 0.5);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.verticalDivider {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .bottom {
+    flex-direction: row;
+    padding: 36px 0;
+  }
+
+  .verticalDivider {
+    display: block;
+  }
+}
