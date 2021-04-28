@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 import setCity from '../../store/city/actions/setCity';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { IOtherCitiesProps, IOtherCitiesState, IOtherCitiesDispatchProps, IOtherCitiesStateProps } from '../../types/props';
+import { IOtherCitiesProps, IOtherCitiesState, IOtherCitiesDispatchProps, IOtherCitiesStateProps } from '../interfaces/otherCities.interface';
 import { ISettingState } from '../../types/stateAndAction';
 
 const cx = classNames.bind(styles);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { IBaseComponent } from '../../types/props';
+import { IBaseComponent } from '../interfaces/base.interface';
 
 const Temperature : React.FunctionComponent<IBaseComponent> = ({
   children,

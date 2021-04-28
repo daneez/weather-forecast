@@ -1,5 +1,5 @@
 import setCity from './setCity';
-import { SET_CITY } from '../../type';
+import { SET_CITY } from '../type';
 
 describe('setCity', () => {
   it('returns action', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Text.module.css';
-import { IBaseComponent } from '../../../../types/props';
+import { IBaseComponent } from '../../../interfaces/base.interface';
 
 const cx = classNames.bind(styles);
 

@@ -1,4 +1,4 @@
-import { ICity } from './../../../../types/props';
+import { ICity } from '../../../../types/stateAndAction';
 import { SET_CITY } from '../../type';
 
 export default (city: ICity) => ({

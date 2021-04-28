@@ -6,7 +6,7 @@ import Text from './components/Text';
 import Temperature from '../Temperature';
 import VerticalDivider from '../VerticalDivider';
 import getWeather from '../../apis/getWeather';
-import { ICurrentComponentState, ICurrentProps, ICurrentStateProps } from '../../types/props';
+import { ICurrentComponentState, ICurrentProps, ICurrentStateProps } from '../interfaces/current.interface';
 import { ISettingState } from '../../types/stateAndAction';
 
 class Current extends React.Component<ICurrentProps, ICurrentComponentState> {

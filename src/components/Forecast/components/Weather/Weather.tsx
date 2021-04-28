@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Weather.module.css';
 import Temperature from '../../../Temperature';
-import { IWeatherProps } from '../../../../types/props';
+import { IWeatherProps } from '../../../interfaces/weather.interface';
 
 const Weather: React.FunctionComponent<IWeatherProps> = ({
   day,

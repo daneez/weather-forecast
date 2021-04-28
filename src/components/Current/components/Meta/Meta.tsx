@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Meta.module.css';
 import Text from '../Text';
-import { IBaseMeta } from '../../../../types/props';
+import { IBaseMeta } from '../../../interfaces/base.interface';
 
 const Meta: React.FunctionComponent<IBaseMeta> = ({
   title,
