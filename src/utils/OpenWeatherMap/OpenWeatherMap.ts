@@ -7,12 +7,12 @@ const OpenWeatherMap = axios.create({
   baseURL,
 });
 
-const enrichRequestWithAppId = (config) => {
+const enrichRequestWithAppId = (config: any) => {
   config.params.appid = process.env.REACT_APP_API_KEY;
   return config;
 }
 
-const enrichRequestWithCelsiusUnits = (config) => {
+const enrichRequestWithCelsiusUnits = (config: any) => {
   config.params.units = 'metric';
 
   return config;

@@ -1,6 +1,6 @@
 import OpenWeatherMap from '../../utils/OpenWeatherMap';
 
-export default (id) => OpenWeatherMap.get('/weather', {
+export default (id: number) => OpenWeatherMap.get('/weather', {
   params: {
     id,
   },

@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Weather.module.css';
 import Temperature from '../../../Temperature';
+import { IWeatherProps } from '../../../../types/props';
 
-const Weather = ({
+const Weather: React.FunctionComponent<IWeatherProps> = ({
   day,
   temperature,
   weather,

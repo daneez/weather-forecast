@@ -5,6 +5,9 @@ import getWeathers from '../../apis/getWeathers';
 import classNames from 'classnames/bind';
 import setCity from '../../store/city/actions/setCity';
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import { IOtherCitiesProps, IOtherCitiesState, IOtherCitiesDispatchProps, IOtherCitiesStateProps } from '../../types/props';
+import { ISettingState } from '../../types/stateAndAction';
 
 const cx = classNames.bind(styles);
 
@@ -22,12 +25,14 @@ export const CITIES = [{
   id: '2063523',
 }];
 
-class OtherCities extends React.Component {
-  constructor(props) {
+class OtherCities extends React.Component<IOtherCitiesProps, IOtherCitiesState> {
+  constructor(props: IOtherCitiesProps) {
     super(props);
 
     this.state = {
-      data: null,
+      data: {
+        list: []
+      },
       loading: true,
       toggle: false,
     }
@@ -68,7 +73,7 @@ class OtherCities extends React.Component {
             <div className={styles.loading}>Loading...</div>
           ) : (
             <div className={styles.cities}>
-              {data.list.map((item) => {
+              {data.list.map((item: any) => {
                 if (item.id === currentCity.id) {
                   return null;
                 }
@@ -97,11 +102,11 @@ class OtherCities extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: ISettingState): IOtherCitiesStateProps => ({
   currentCity: state.city,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch: Dispatch): IOtherCitiesDispatchProps => ({
   onCityClick: (city) => dispatch(setCity(city)),
 });
 

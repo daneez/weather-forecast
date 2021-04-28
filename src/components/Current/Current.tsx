@@ -6,9 +6,11 @@ import Text from './components/Text';
 import Temperature from '../Temperature';
 import VerticalDivider from '../VerticalDivider';
 import getWeather from '../../apis/getWeather';
+import { ICurrentComponentState, ICurrentProps, ICurrentStateProps } from '../../types/props';
+import { ISettingState } from '../../types/stateAndAction';
 
-class Current extends React.Component {
-  constructor(props) {
+class Current extends React.Component<ICurrentProps, ICurrentComponentState> {
+  constructor(props: ICurrentProps) {
     super(props);
 
     this.state = {
@@ -21,7 +23,7 @@ class Current extends React.Component {
     this.getWeather();
   }
 
-  componentDidUpdate(props) {
+  componentDidUpdate(props: ICurrentProps) {
     if (props.city !== this.props.city) {
       this.getWeather();
     }
@@ -83,7 +85,7 @@ class Current extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = (state: ISettingState): ICurrentStateProps => ({
   city: state.city,
 });
 

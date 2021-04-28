@@ -1,6 +1,7 @@
 import React from 'react';
+import { IVerficalDivider } from '../../types/props';
 
-const VerticalDivider = ({
+const VerticalDivider: React.FunctionComponent<IVerficalDivider> = ({
   color,
   width,
   className,

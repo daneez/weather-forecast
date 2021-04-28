@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Forecast.module.css';
 import Weather from './components/Weather';
 
-const Forecast = () => (
+const Forecast: React.FunctionComponent = () => (
   <div data-testid="FORECAST" className={styles.forecast}>
     <h2 className={styles.header}>Forecast</h2>
     <div className={styles.weathers}>
