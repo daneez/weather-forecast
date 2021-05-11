@@ -6,8 +6,8 @@ export interface ISettingState {
   city: ICity;
 }
 export interface ISettingCityState {
-  id: string | undefined;
-  name: string | undefined;
+  id: string;
+  name: string;
 }
 export interface IAction {
   type: string;
