@@ -1,26 +1,26 @@
 import React from 'react';
 import City from './components/City';
-import getWeathers from '../../apis/getWeathers';
 import { render } from '@testing-library/react';
 import OtherCities, { CITIES } from './OtherCities';
+import axios from 'axios';
 
-jest.mock('./components/City', () => jest.fn(() => '<City />'));
-jest.mock('../../apis/getWeathers', () => jest.fn());
+// jest.mock('./components/City', () => jest.fn(() => '<City />'));
+// jest.mock('../../apis/getWeathers', () => jest.fn());
+jest.mock('axios');
+const mockCity = jest.fn() as jest.MockedFunction<typeof City>;
+const mockGetWeathers = axios as jest.Mocked<typeof axios>;
 
 describe('<OtherCities />', () => {
   describe('On loading', () => {
     let renderResult;
 
     beforeEach(() => {
-      City.mockClear();
-      getWeathers.mockClear();
-      
-      getWeathers.mockImplementation(() => new Promise(() => {}));
+      mockCity.mockClear();
       renderResult = render(<OtherCities />);
     });
 
     it('should call getWeathers with city ids', () => {
-      expect(getWeathers).toBeCalledWith(CITIES.map((c) => c.id));
+      expect(mockGetWeathers).toBeCalledWith(CITIES.map((c) => c.id));
     });
 
     it('should renders loading', () => {
@@ -30,7 +30,7 @@ describe('<OtherCities />', () => {
     });
 
     it('should not call <City />', () => {
-      expect(City).not.toBeCalled();
+      expect(mockCity).not.toBeCalled();
     });
   });
 
@@ -48,20 +48,17 @@ describe('<OtherCities />', () => {
         }],
       }],
     };
-  
+    
     beforeEach(() => {
-      City.mockClear();
-      getWeathers.mockClear();
+      mockCity.mockClear();
 
-      getWeathers.mockResolvedValue({
-        data: weathers,
-      });
+      mockGetWeathers.get.mockResolvedValue({ data: weathers } as any);
 
       renderResult = render(<OtherCities />);
     });
 
     it('should call getWeathers with city ids', () => {
-      expect(getWeathers).toBeCalledWith(CITIES.map((c) => c.id));
+      expect(mockGetWeathers).toBeCalledWith(CITIES.map((c) => c.id));
     });
 
     it('should not render loading', () => {
@@ -72,9 +69,9 @@ describe('<OtherCities />', () => {
 
     it('should render <City />', () => {
       weathers.list.forEach((item) => {
-        expect(City).toBeCalledWith({
+        expect(mockCity).toBeCalledWith({
           name: item.name,
-          temperature: parseInt(item.main.temp),
+          temperature: item.main.temp,
           weather: {
             icon: item.weather[0].icon,
             description: item.weather[0].main,

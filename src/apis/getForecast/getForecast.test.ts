@@ -2,16 +2,17 @@ import OpenWeatherMap from '../../utils/OpenWeatherMap';
 import getForecast from './getForecast';
 
 describe('getForecast', () => {
+  let jestSpy : jest.SpyInstance;
   beforeEach(() => {
-    jest.spyOn(OpenWeatherMap, 'get');
+    jestSpy = jest.spyOn(OpenWeatherMap, 'get');
   });
 
   afterEach(() => {
-    OpenWeatherMap.get.mockRestore();
+    jestSpy.mockRestore();
   })
 
   it('should use OpenWeatherMap to get data', async () => {
-    OpenWeatherMap.get.mockResolvedValue();
+    jestSpy.mockResolvedValue({ value: null });
 
     const cityId = '1000';
     await getForecast(cityId);
@@ -76,7 +77,7 @@ describe('getForecast', () => {
       },
     };
 
-    OpenWeatherMap.get.mockResolvedValue({ data });
+    jestSpy.mockResolvedValue({ data });
 
     const response = await getForecast('1000');
 

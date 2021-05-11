@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './City.module.css';
 import Temperature from '../../../Temperature';
+import { ICityProps } from '../../../interfaces/city.interface';
 
-const City = ({
+const City: React.FunctionComponent<ICityProps> = ({
   name,
   weather,
   temperature,
